@@ -10,12 +10,13 @@
 
 ## Setup
 
-1. **Unzip the Data:**
+1. **Place the Data:**
 
-   First, unzip the `Data2.zip` file, which contains the database and query images.
+   First, put `Data2` file in the main directory, which contains the database and query images.
+
+2. Then
 
    ```bash
-   unzip Data2.zip
    python pre_process.py
    python main.py
 
