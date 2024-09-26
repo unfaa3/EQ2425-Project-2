@@ -14,10 +14,9 @@ class Node:
 def hi_kmeans(data, labels, b, depth):
     """
     Builds a vocabulary tree using hierarchical k-means clustering.
-
     Parameters:
-    - data (numpy array): SIFT features of shape (n_samples, n_features).
-    - labels (numpy array): Image IDs corresponding to each feature.
+    - data (numpy array): SIFT features of shape {(number of key points * number of images) * 128 features}.
+    - labels (numpy array): one dimensional labels concatenate for each key points for all images.
     - b (int): Branching factor (number of clusters at each node).
     - depth (int): Depth of the tree.
 
@@ -27,7 +26,17 @@ def hi_kmeans(data, labels, b, depth):
     visual_word_id_counter = [0]  # Mutable counter for assigning visual word IDs
 
     def recursive_kmeans(data_indices, current_depth):
+        """
+            recursively fill in k-means results.
+            Parameters:
+            - data_indices (numpy array): Arrange of indices of data points.
+            - current_depth (int): Depth of the tree, start from 0.
+
+            Return:
+            - node (Node): K-means node of the vocabulary tree.
+            """
         node = Node(level=current_depth)
+        # list of all key points
         data_points = data[data_indices]
 
         # Compute centroid
@@ -47,6 +56,7 @@ def hi_kmeans(data, labels, b, depth):
                 for i in range(num_clusters):
                     child_indices = data_indices[labels_kmeans == i]
                     if len(child_indices) > 0:
+                        # do hierarchical kmeans under
                         child_node = recursive_kmeans(child_indices, current_depth + 1)
                         node.children.append(child_node)
             else:

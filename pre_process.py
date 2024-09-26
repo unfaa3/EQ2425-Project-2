@@ -39,6 +39,9 @@ def extract_and_save_sift_features(image_paths, save_path, sift_detector):
             print(f'Warning: No features found in {os.path.basename(img_path)}.')
 
     if descriptors_list:
+        # here vstack will stack along x-axis
+        # which means x-axis will be (number of features * number of images)
+        # y-axis will be 128 SIFT features
         combined_descriptors = np.vstack(descriptors_list)
         np.save(save_path, combined_descriptors)
         return total_features

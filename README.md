@@ -14,12 +14,25 @@ finished
 - The number of images in which the visual word appears (DF).
 
 ## Querying
-
-
-### Error Message:
+### (a)
+Error Message:
 ValueError: n_samples=4 should be >= n_clusters=5.
-
+Solution:
 When building a vocabulary tree with a high branching factor (b) and depth (depth), 
 the number of data points at the deeper levels of the tree becomes very small. 
 This is because the data is split into increasingly smaller subsets at each level of the tree. 
 Eventually, you may reach a point where the number of data points is less than b.
+
+### (b)
+
+### (c)
+For data-base with N key points, and query images with M key points.
+
+- Traditional K-means Cluster
+Without hierarchical clustering, each query feature would need to be compared to all cluster centroids or all features in the database.
+This is computationally expensive for large N.
+  -  Total number of Euclidean distance calculation is: O(N * M).
+- Hierarchical K-means Cluster
+Tree structure reduce the number of comparisons needed.
+Let b be the branching factor (number of clusters), L be the depth of the tree. At each level, a query feature compares to b centroids.
+  -  Total number of Euclidean distance calculation is: O(M * b * L)
