@@ -1,7 +1,23 @@
 ## code for EQ2425 KTH
 
-## Image Feature Extraction
-finished
+## Requirements
+
+- Python 3.x
+- NumPy
+- OpenCV (for SIFT feature extraction)
+- SciPy (for hierarchical K-means)
+- Any other libraries specified in `requirements.txt`
+
+## Setup
+
+1. **Unzip the Data:**
+
+   First, unzip the `Data2.zip` file, which contains the database and query images.
+
+   ```bash
+   unzip Data2.zip
+   python pre_process.py
+   python main.py
 
 ## Vocabulary Tree Construction
 ### (a)
@@ -14,16 +30,25 @@ finished
 - The number of images in which the visual word appears (DF).
 
 ## Querying
-### (a)
-Error Message:
-ValueError: n_samples=4 should be >= n_clusters=5.
-Solution:
-When building a vocabulary tree with a high branching factor (b) and depth (depth), 
-the number of data points at the deeper levels of the tree becomes very small. 
-This is because the data is split into increasingly smaller subsets at each level of the tree. 
-Eventually, you may reach a point where the number of data points is less than b.
 
-### (b)
+[//]: # (### &#40;a&#41;)
+
+[//]: # (Error Message:)
+
+[//]: # (ValueError: n_samples=4 should be >= n_clusters=5.)
+
+[//]: # (Solution:)
+
+[//]: # (When building a vocabulary tree with a high branching factor &#40;b&#41; and depth &#40;depth&#41;, )
+
+[//]: # (the number of data points at the deeper levels of the tree becomes very small. )
+
+[//]: # (This is because the data is split into increasingly smaller subsets at each level of the tree. )
+
+[//]: # (Eventually, you may reach a point where the number of data points is less than b.)
+
+[//]: # ()
+[//]: # (### &#40;b&#41;)
 
 ### (c)
 For data-base with N key points, and query images with M key points.
