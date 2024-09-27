@@ -55,7 +55,7 @@ def main():
     query_dir = 'Data2/client'
 
     # Initialize SIFT detector
-    sift = cv2.SIFT_create()
+    sift = cv2.SIFT_create(contrastThreshold=0.17, edgeThreshold=10)
 
     # Variables to keep track of total features
     total_db_features = 0
