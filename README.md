@@ -27,8 +27,9 @@
 - Child Nodes:
 - Level of a nodes: to know the depth of search.
 ### (b)
-- A dictionary with visual term, to count (TF).
+- A dictionary with visual term (key points), to count (TF).
 - The number of images in which the visual word appears (DF).
+- Image ID
 
 ## Querying
 
