@@ -306,5 +306,5 @@ def part4_b():
         print(f'Top-5 Recall Rate: {top5_recall * 100:.2f}%')
 
 if __name__ == '__main__':
-    # part4_a()
-    part4_b()
+    part4_a()
+    # part4_b()
